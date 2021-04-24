@@ -61,5 +61,10 @@ namespace VizeOdeviNTP
             a.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
