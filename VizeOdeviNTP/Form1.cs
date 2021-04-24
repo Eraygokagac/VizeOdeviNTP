@@ -27,5 +27,35 @@ namespace VizeOdeviNTP
             root = doc.Root;
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkBox1.Checked==true)
+                {
+                    List<XElement> rammus = root.Elements()
+                    .Where(s => s.Element("KISIR").Value == "true")
+                    .ToList();
+                    XDocument eray = XDocument.Parse("<root></root>");
+                    XElement gokagac = eray.Root;
+                    gokagac.Add(rammus);
+                    gokagac.Save("KisirVeriler.xml");
+                    MessageBox.Show("Veriler kaydedildi", "-BAŞARILI-", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("kaydetmediniz");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hata");
+            }
+
+
+
+
+        }
     }
 }
