@@ -53,9 +53,13 @@ namespace VizeOdeviNTP
                 MessageBox.Show("Hata");
             }
 
+        }
 
-
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 a = new Form1();
+            a.Show();
+            this.Hide();
         }
     }
 }
