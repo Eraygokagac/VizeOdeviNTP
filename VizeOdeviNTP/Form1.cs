@@ -66,5 +66,30 @@ namespace VizeOdeviNTP
         {
             Application.Exit();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(checkBox2.Checked == true)
+            {
+                XDocument eray = XDocument.Parse("<root></root>");
+                XElement gokagac = eray.Root;
+                gokagac.Add(root.Elements());
+                gokagac.Save("TümVeriler.xml");
+                MessageBox.Show("Veriler Kaydedildi", "-BAŞARILI-", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            if(checkBox3.Checked == true)
+            {
+                List<XElement> rammus = root.Elements()
+                .Where(s => s.Element("KISIR").Value == "false")
+                .ToList();
+                XDocument eray=XDocument.Parse("<root></root>");
+                XElement gokagac = eray.Root;
+                gokagac.Add(rammus);
+                gokagac.Save("KısırOlmayanVeriler.xml");
+                MessageBox.Show("Veriler Kaydedildi", "-BAŞARILI-", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
     }
 }
