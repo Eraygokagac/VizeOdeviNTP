@@ -29,6 +29,7 @@ namespace VizeOdeviNTP
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -36,6 +37,10 @@ namespace VizeOdeviNTP
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -80,9 +85,9 @@ namespace VizeOdeviNTP
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(260, 140);
+            this.button4.Location = new System.Drawing.Point(8, 111);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(169, 23);
+            this.button4.Size = new System.Drawing.Size(186, 23);
             this.button4.TabIndex = 4;
             this.button4.Text = "Kaydet";
             this.button4.UseVisualStyleBackColor = true;
@@ -91,7 +96,7 @@ namespace VizeOdeviNTP
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(260, 61);
+            this.checkBox2.Location = new System.Drawing.Point(8, 32);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(117, 17);
             this.checkBox2.TabIndex = 5;
@@ -101,21 +106,45 @@ namespace VizeOdeviNTP
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(260, 102);
+            this.checkBox3.Location = new System.Drawing.Point(8, 75);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(138, 17);
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Text = "Kısır Olmayanları Kaydet";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(79, 181);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(298, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Sistem 30 Saniyede Bir Kayıt İçin Kontrol Eder Ve Size Sorar!!!";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Location = new System.Drawing.Point(231, 23);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 140);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Diğer";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 203);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -123,6 +152,8 @@ namespace VizeOdeviNTP
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,6 +168,9 @@ namespace VizeOdeviNTP
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

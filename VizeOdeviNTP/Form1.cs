@@ -21,11 +21,15 @@ namespace VizeOdeviNTP
 
         XElement root;
 
+        int sayi = 60;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             XDocument doc = XDocument.Load("https://data.ibb.gov.tr/en/dataset/0efb7d74-fffe-4cb5-b675-75086f3d7e29/resource/ae6be6d3-ef7b-4eca-a356-9f90c745a8e8/download/tedaviedilenhayvanlar.xml");
             root = doc.Root;
 
+            timer1.Interval = 30000;
+            timer1.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -89,6 +93,25 @@ namespace VizeOdeviNTP
                 gokagac.Save("KısırOlmayanVeriler.xml");
                 MessageBox.Show("Veriler Kaydedildi", "-BAŞARILI-", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (sayi>=0)
+            {
+                timer1.Interval = 30000;
+                timer1.Enabled = true;
+                int sayac = sayi--;
+
+                if (MessageBox.Show("Veriler Kaydedilsin mi? Vazgeç derseniz 30 saniye ertelemiş olursunuz.", "Onay veriniz", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
+                {
+                    XDocument eray = XDocument.Parse("<root></root>");
+                    XElement gokagac = eray.Root;
+                    gokagac.Add(root.Elements());
+                    gokagac.Save("TümVeriler.xml");
+                    MessageBox.Show("Veriler Kaydedildi", "-BAŞARILI-", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
     }
